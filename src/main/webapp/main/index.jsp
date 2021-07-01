@@ -27,22 +27,43 @@
         .header{
             text-align: center;
             color: floralwhite;
-            font-size: 42px;
+            font-size: 84px;
             padding-top: 30px;
         }
         .quote{
             text-align: center;
             color: lightblue;
-            font-family: FreeSans, sans-serif ;
-            font-size: x-large;
+            font-size: 64px;
             font-weight: bold;
+        }
+        .links{
+            display: inline;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            text-decoration: none;
+            height: 50px;
+            width: 300px;
+            padding-left: 130px;
+            color: coral;
+            padding-top: 200px;
+
         }
     </style>
 </head>
 <body>
 <div id="wrapper">
-    <h2 class="header">Warsztat samochodowy</h2>
-    <p class="quote">To właśnie my naprawimy Twoją brykę.</p>
+    <head>
+        <h2 class="header">Warsztat samochodowy</h2>
+        <p class="quote">To właśnie My naprawimy Twoją brykę!</p>
+        <nav>
+            <a class="links" href="#">Strefa klienta</a>
+            <a class="links" href="/access/loginOwner.jsp">Strefa właściciela</a>
+            <a class="links" href="/access/loginEmployee.jsp">Strefa pracownika</a>
+        </nav>
+
+    </head>
+
 </div>
 
 </body>
