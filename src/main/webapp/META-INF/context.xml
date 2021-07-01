@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Context>
-    <Resource name="jdbc/crm_car_repair"
+    <Resource name="jdbc/cmr_car_repair"
               auth="Container"
               type="javax.sql.DataSource"
               username="root"
