@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebFilter(filterName = "FilterEncoding", urlPatterns = {"/"})
+@WebFilter(filterName = "FilterEncoding", urlPatterns = {"/","/loginOwner","/loginEmployee"})
 public class FilterEncoding implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
