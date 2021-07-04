@@ -15,15 +15,15 @@ public class UserDao {
     private final String READ_USER_QUERY = "SELECT * FROM users";
 
 
-    public List<User> readUser(){
+    public List<User> readUsers(){
 
         try(Connection connection = DBUtil.getConn()){
-            PreparedStatement statement = connection.prepareStatement(READ_USER_QUERY, PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement statement = connection.prepareStatement(READ_USER_QUERY);
             ResultSet resultSet = statement.executeQuery();
             List<User> employeeList = new ArrayList<>();
             while(resultSet.next()){
                 User user = new User();
-                user.setId_user(resultSet.getInt("id_group"));
+                user.setId_user(resultSet.getInt("id_user"));
                 user.setFirstName(resultSet.getString("firstName"));
                 user.setLastName(resultSet.getString("lastName"));
                 user.setEmail(resultSet.getString("email"));
