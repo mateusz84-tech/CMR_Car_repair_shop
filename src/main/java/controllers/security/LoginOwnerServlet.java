@@ -36,8 +36,8 @@ public class LoginOwnerServlet extends HttpServlet {
                     session.setAttribute("president", ownerList);
                     session.setMaxInactiveInterval(10*60);
                 }else {
-                    RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/access/loginOwner/jsp");
-                    response.getWriter().println("<font color=red>Błędny login lub hasło<font>");
+                    RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/access/loginOwner.jsp");
+                    response.getWriter().println("<font color=red align: center>Błędny login lub hasło<font>");
                     requestDispatcher.include(request, response);
                 }
             }
