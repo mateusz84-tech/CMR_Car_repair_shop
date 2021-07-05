@@ -36,13 +36,14 @@
             text-decoration: none;
             font-size: 28px;
             color: mediumspringgreen;
-            border: whitesmoke solid;
+            border: darkorange solid;
             height: 100px;
             width: 200px;
             margin-left: 100px;
             margin-top: 40px;
             text-align: center;
             padding-top: 12px;
+            border-radius: 10px 10px 10px 10px;
         }
         table{
             margin-top: 100px;
