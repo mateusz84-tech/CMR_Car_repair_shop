@@ -30,9 +30,10 @@
             text-align: center;
             color: whitesmoke;
             font-size: 42px;
+            text-shadow: 10px 10px 5px #000000;
         }
         a{
-            display: inline-block;
+            display: block;
             text-decoration: none;
             font-size: 28px;
             color: mediumspringgreen;
@@ -44,6 +45,7 @@
             text-align: center;
             padding-top: 12px;
             border-radius: 10px 10px 10px 10px;
+            box-shadow: 10px 10px 5px #000000;
         }
         table{
             margin-top: 100px;
@@ -64,7 +66,7 @@
     <h1>Owner</h1>
     <table>
         <tr>
-            <td><a href="#">Dodaj pracownika</a></td>
+            <td><a href="/employee/addEmployee.jsp">Dodaj pracownika</a></td>
             <td><a href="#">Edytuj pracownika</a></td>
             <td><a href="#">Usuń pracownika</a></td>
         </tr>
