@@ -8,16 +8,18 @@ public class Employee {
     private int number_phone;
     private String notes;
     private double hourly_rate;
+    private String email;
 
     public Employee() {
     }
 
-    public Employee(String first_name, String last_name, int number_phone, String notes, double hourly_rate) {
+    public Employee(String first_name, String last_name, int number_phone, String notes, double hourly_rate, String email) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.number_phone = number_phone;
         this.notes = notes;
         this.hourly_rate = hourly_rate;
+        this.email = email;
     }
 
     public int getId_employee() {
@@ -68,9 +70,17 @@ public class Employee {
         this.hourly_rate = hourly_rate;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return String.format("ID: %d%nImię: %s%nNazwisko: %s%nNumer telefonu: %d%nNotakta: %s%n,Stawka godzinowa: %.2f%n"
-                ,getId_employee(),getFirst_name(),getLast_name(),getNumber_phone(),getNotes(),getHourly_rate());
+        return String.format("ID: %d%nImię: %s%nNazwisko: %s%nNumer telefonu: %d%nNotakta: %s%n,Stawka godzinowa: %.2f%nEmail: %s%n"
+                ,getId_employee(),getFirst_name(),getLast_name(),getNumber_phone(),getNotes(),getHourly_rate(),getEmail());
     }
 }
