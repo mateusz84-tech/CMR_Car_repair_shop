@@ -11,10 +11,11 @@ import java.sql.SQLException;
 public class EmployeeDao {
 
     private final String CREATE_EMPLOYEE_QUERY =
-            "INSERT INTO employee(first_name,last_name,number_phone,email,notes,hourly_rate)VALUES(?,?,?,?,?)";
+            "INSERT INTO employee(first_name,last_name,number_phone,email,notes,hourly_rate)VALUES(?,?,?,?,?,?)";
     private final String FIND_BY_ID = "SELECT * FROM employee WHERE id_employee = ?";
     private final String DELETE_BY_ID = "DELETE FROM employee WHERE id_employee = ?";
     private final String FIND_ALL = "SELECT * FROM employee";
+    private Employee employee;
 
     public Employee create (Employee employee){
 
@@ -25,8 +26,9 @@ public class EmployeeDao {
             statement.setString(2,employee.getLast_name());
             statement.setInt(3,employee.getNumber_phone());
             statement.setString(4,employee.getEmail());
-            statement.setDouble(5,employee.getHourly_rate());
-
+            statement.setString(5,employee.getNotes());
+            statement.setDouble(6,employee.getHourly_rate());
+            statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             while(resultSet.next()){
                 int id = resultSet.getInt(1);
@@ -35,6 +37,7 @@ public class EmployeeDao {
             return employee;
 
         }catch (SQLException exe){
+            exe.printStackTrace();
             return null;
         }
     }
