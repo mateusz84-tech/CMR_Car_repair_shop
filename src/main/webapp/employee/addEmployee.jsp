@@ -22,6 +22,34 @@
             margin: 0 auto 0 auto;
             background-color: slategray;
         }
+        h3{
+            text-align: center;
+            color: whitesmoke;
+            font-size: 32px;
+            padding-top: 35px;
+        }
+        form{
+            display: block;
+            padding-top: 50px;
+            border: solid lightblue;
+            text-align: center;
+            color: blue;
+            margin-top: 50px;
+        }
+        .field{
+            display: inline-block;
+            height: 30px;
+            width: 250px;
+            border-radius: 10px 10px 10px 10px;
+        }
+        .button{
+            margin-top: 20px;
+            height: 25px;
+            width: 70px;
+            color: black;
+            border-radius: 7px 7px 7px 7px;
+            background-color: mediumspringgreen;
+        }
     </style>
 </head>
 <body>
@@ -30,29 +58,29 @@
   <form method="post" action="/addEmployee">
       Imię:<br>
       <label>
-          <input type="text" name="name">
+          <input class="field" type="text" name="name">
       </label><br>
       Nazwisko:<br>
       <label>
-          <input type="text" name="surname">
+          <input class="field" type="text" name="surname">
       </label><br>
       Numer tel:<br>
       <label>
-          <input type="text" name="phone_number">
+          <input class="field" type="text" name="phone_number">
       </label><br>
       Email:<br>
       <label>
-          <input type="text" name="email">
+          <input class="field" type="text" name="email">
       </label><br>
       Notka:<br>
       <label>
-          <textarea name="notes"></textarea>
+          <textarea class="field" name="notes"></textarea>
       </label><br>
       Stawka godzinowa:<br>
       <label>
-          <input type="number" name="hourly_rate" min="0.0" step="0.1">
+          <input class="field" type="number" name="hourly_rate" min="0.0" step="0.1">
       </label><br>
-      <input type="submit" value="Dodaj">
+      <input class="button" type="submit" value="Dodaj">
 
   </form>
 </div>
