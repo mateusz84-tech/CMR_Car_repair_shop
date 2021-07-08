@@ -32,7 +32,7 @@
             font-size: 42px;
             text-shadow: 10px 10px 5px #000000;
         }
-        a{
+        a.windows{
             display: block;
             text-decoration: none;
             font-size: 28px;
@@ -58,27 +58,37 @@
             text-align: center;
 
         }
+        a.logout{
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 1000px;
+            font-size: 22px;
+            text-decoration: none;
+            color: darkorange;
+
+        }
     </style>
 </head>
 <body>
 <div id="wrapper">
 
+    <p><a class="logout" href="#">Wyloguj</a></p>
     <h1>Owner</h1>
     <table>
         <tr>
-            <td><a href="/employee/addEmployee.jsp">Dodaj pracownika</a></td>
-            <td><a href="#">Edytuj pracownika</a></td>
-            <td><a href="#">Usuń pracownika</a></td>
+            <td><a class="windows" href="/employee/addEmployee.jsp">Dodaj pracownika</a></td>
+            <td><a class="windows" href="#">Edytuj pracownika</a></td>
+            <td><a class="windows" href="#">Usuń pracownika</a></td>
         </tr>
         <tr>
-            <td><a href="#">Lista pracowników</a></td>
-            <td><a href="#">Obecne naprawy</a></td>
-            <td><a href="#">Zakończone naprawy</a></td>
+            <td><a class="windows" href="#">Lista pracowników</a></td>
+            <td><a class="windows" href="#">Obecne naprawy</a></td>
+            <td><a class="windows" href="#">Zakończone naprawy</a></td>
         </tr>
         <tr>
-            <td><a href="#">Opcja dodatkowa</a></td>
-            <td><a href="#">Opcja dodatkowa</a></td>
-            <td><a href="#">Opcja dodatkowa</a></td>
+            <td><a class="windows" href="#">Opcja dodatkowa</a></td>
+            <td><a class="windows" href="#">Opcja dodatkowa</a></td>
+            <td><a class="windows" href="#">Opcja dodatkowa</a></td>
         </tr>
     </table>
 <footer>
