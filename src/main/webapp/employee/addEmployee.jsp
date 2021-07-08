@@ -66,7 +66,7 @@
       </label><br>
       Numer tel:<br>
       <label>
-          <input class="field" type="text" name="phone_number">
+          <input class="field" type="number" name="phone_number">
       </label><br>
       Email:<br>
       <label>
@@ -78,7 +78,7 @@
       </label><br>
       Stawka godzinowa:<br>
       <label>
-          <input class="field" type="number" name="hourly_rate" min="0.0" step="0.1">
+          <input class="field" type="number" name="hourly_rate" step="0.01" min="15.01">
       </label><br>
       <input class="button" type="submit" value="Dodaj">
 
