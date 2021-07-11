@@ -1,3 +1,4 @@
+
 <%@ page import="java.security.SecureRandom" %>
 <%@ page import="java.time.LocalTime" %><%--
   Created by IntelliJ IDEA.
@@ -71,9 +72,34 @@
 </head>
 <body>
 <div id="wrapper">
-
+<%
+    Cookie[] cookies = request.getCookies();
+    HttpSession httpSession = request.getSession();
+    String sessionId = httpSession.getId();
+    char[] shortIdSession = sessionId.toCharArray();
+    StringBuilder stringBuilder = new StringBuilder();
+    // todo dokończyć rozbijanie numeru sesji na otatnie 4 cyfry
+    for (char c : shortIdSession) {
+        if (c > shortIdSession[shortIdSession.length - 5]) {
+            stringBuilder.append(c);
+        }
+    }
+    String sessionValue = (String) httpSession.getAttribute("JSESSIONID");
+    if(sessionValue == null){
+        for(Cookie cookie : cookies){
+            if(cookie.getName().equals("owner")){
+                sessionValue = cookie.getName();
+            }
+        }
+    }
+    String message = null;
+    if(session.isNew()){
+        message = "Nowa sesja";
+    }
+%>
     <p><a class="logout" href="/security/Logout">Wyloguj</a></p>
-    <h1>Owner</h1>
+    <h1>Witaj <%=sessionValue%> </h1>
+    <h1>Id sesji: <%=stringBuilder%></h1>
     <table>
         <tr>
             <td><a class="windows" href="/employee/addEmployee.jsp">Dodaj pracownika</a></td>

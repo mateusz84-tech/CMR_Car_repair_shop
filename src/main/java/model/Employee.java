@@ -9,17 +9,19 @@ public class Employee {
     private String notes;
     private double hourly_rate;
     private String email;
+    private String password;
 
     public Employee() {
     }
 
-    public Employee(String first_name, String last_name, int number_phone, String notes, double hourly_rate, String email) {
+    public Employee(String first_name, String last_name, int number_phone, String notes, double hourly_rate, String email, String password) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.number_phone = number_phone;
         this.notes = notes;
         this.hourly_rate = hourly_rate;
         this.email = email;
+        this.password = password;
     }
 
     public int getId_employee() {
@@ -76,6 +78,14 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
