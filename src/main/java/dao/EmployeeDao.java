@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeDao {
 
@@ -38,6 +40,31 @@ public class EmployeeDao {
 
         }catch (SQLException exe){
             exe.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Employee> findAll(){
+        List<Employee> employees = new ArrayList<>();
+        try(Connection connection = DBUtil.getConn()){
+            PreparedStatement statement = connection.prepareStatement(FIND_ALL);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                Employee employee = new Employee();
+                resultSet.getInt("id_employee");
+                resultSet.getString("first_name");
+                resultSet.getString("last_name");
+                resultSet.getInt("number_phone");
+                resultSet.getString("email");
+                resultSet.getString("notes");
+                resultSet.getDouble("hourly_rate");
+                resultSet.getString("password");
+
+                employees.add(employee);
+            }
+            return employees;
+        }catch (SQLException exc){
+            exc.printStackTrace();
             return null;
         }
     }
