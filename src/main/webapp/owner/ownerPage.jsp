@@ -72,7 +72,7 @@
 <body>
 <div id="wrapper">
 
-    <p><a class="logout" href="#">Wyloguj</a></p>
+    <p><a class="logout" href="/security/Logout">Wyloguj</a></p>
     <h1>Owner</h1>
     <table>
         <tr>
