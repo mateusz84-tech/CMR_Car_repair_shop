@@ -80,6 +80,10 @@
       <label>
           <input class="field" type="number" name="hourly_rate" step="0.01" min="15.01">
       </label><br>
+      Hasło domyślne:<br>
+      <label>
+          <input class="field" type="password" name="password">
+      </label><br>
       <input class="button" type="submit" value="Dodaj">
 
   </form>
