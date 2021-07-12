@@ -26,6 +26,7 @@ public class AddEmployeeServlet extends HttpServlet {
         String email = request.getParameter("email");
         String notes = request.getParameter("notes");
         double rate = Double.parseDouble(request.getParameter("hourly_rate"));
+        String password = request.getParameter("password");
 
         Employee employee = new Employee();
         employee.setFirst_name(name);
@@ -34,6 +35,7 @@ public class AddEmployeeServlet extends HttpServlet {
         employee.setEmail(email);
         employee.setNotes(notes);
         employee.setHourly_rate(rate);
+        employee.setPassword(password);
 
         EmployeeDao employeeDao = new EmployeeDao();
         employeeDao.create(employee);
