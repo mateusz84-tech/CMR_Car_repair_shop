@@ -13,7 +13,7 @@ import java.util.List;
 public class EmployeeDao {
 
     private final String CREATE_EMPLOYEE_QUERY =
-            "INSERT INTO employee(first_name,last_name,number_phone,email,notes,hourly_rate)VALUES(?,?,?,?,?,?)";
+            "INSERT INTO employee(first_name,last_name,number_phone,email,notes,hourly_rate,password)VALUES(?,?,?,?,?,?,?)";
     private final String FIND_BY_ID = "SELECT * FROM employee WHERE id_employee = ?";
     private final String DELETE_BY_ID = "DELETE FROM employee WHERE id_employee = ?";
     private final String FIND_ALL = "SELECT * FROM employee";
@@ -30,6 +30,7 @@ public class EmployeeDao {
             statement.setString(4,employee.getEmail());
             statement.setString(5,employee.getNotes());
             statement.setDouble(6,employee.getHourly_rate());
+            statement.setString(7, employee.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             while(resultSet.next()){
