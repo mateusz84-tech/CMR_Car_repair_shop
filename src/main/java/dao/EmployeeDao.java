@@ -17,6 +17,7 @@ public class EmployeeDao {
     private final String FIND_BY_ID = "SELECT * FROM employee WHERE id_employee = ?";
     private final String DELETE_BY_ID = "DELETE FROM employee WHERE id_employee = ?";
     private final String FIND_ALL = "SELECT * FROM employee";
+    private final String FIND_ALL_BY_EMAIL_AND_PASSWORD = "SELECT email, password FROM employee";
     private Employee employee;
 
     public Employee create (Employee employee){
@@ -45,11 +46,32 @@ public class EmployeeDao {
         }
     }
 
+    public List<Employee> findByEmailAndPassword(){
+
+        try(Connection connection = DBUtil.getConn()){
+            PreparedStatement statement = connection.prepareStatement(FIND_ALL_BY_EMAIL_AND_PASSWORD);
+            ResultSet resultSet = statement.executeQuery();
+            List<Employee> employeeList = new ArrayList<>();
+            while(resultSet.next()){
+                Employee employee = new Employee();
+                employee.setEmail(resultSet.getString("email"));
+                employee.setPassword(resultSet.getString("password"));
+
+                employeeList.add(employee);
+            }
+            return employeeList;
+        }catch (SQLException exc){
+            exc.printStackTrace();
+            return null;
+        }
+    }
+
     public List<Employee> findAll(){
-        List<Employee> employees = new ArrayList<>();
+
         try(Connection connection = DBUtil.getConn()){
             PreparedStatement statement = connection.prepareStatement(FIND_ALL);
             ResultSet resultSet = statement.executeQuery();
+            List<Employee> employees = new ArrayList<>();
             while(resultSet.next()){
                 Employee employee = new Employee();
                 resultSet.getInt("id_employee");
