@@ -78,7 +78,6 @@
     String sessionId = httpSession.getId();
     char[] shortIdSession = sessionId.toCharArray();
     StringBuilder stringBuilder = new StringBuilder();
-    // todo dokończyć rozbijanie numeru sesji na otatnie 4 cyfry
     for (char c : shortIdSession) {
         if (c > shortIdSession[shortIdSession.length - 5]) {
             stringBuilder.append(c);
