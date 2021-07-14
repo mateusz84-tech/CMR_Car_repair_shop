@@ -21,22 +21,29 @@ public class LoginEmployeeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String emailEmployee = request.getParameter("email");
+        String passwordEmployee = request.getParameter("password");
 
         EmployeeDao employeeDao = new EmployeeDao();
-        List<Employee> employeeList = employeeDao.findAll();
+        List<Employee> employeeList = employeeDao.findByEmailAndPassword();
 
         for(Employee employee : employeeList){
-            // jeśli w tabeli employee nie zostało ustawione jeszcze hasło(pracownik nie ustawiła hasła)
-            // to zostanie przekierowany na stronę rejestracji gdzie za pomocą metody edit z EmployeeDao
-            // ustawi dla siebie hasło, wtedy zostanie przeierowany do strony logowania
-            if(employee.getEmail().equals(email) && employee.getPassword() == null){
-                response.sendRedirect("/access/register.jps");
+            if(employee.getEmail().equals(emailEmployee) && employee.getPassword().equals("haslo")){
+                response.sendRedirect("/access/register.jsp");
             }
-            if(employee.getEmail().equals(email) && employee.getPassword().equals(password)){
+            else if(employee.getEmail().equals(emailEmployee) && employee.getPassword().equals(passwordEmployee)){
                 response.sendRedirect("/employee/employeePage.jsp");
             }
+            else if(!employee.getEmail().equals(emailEmployee) || !employee.getPassword().equals(passwordEmployee)){
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/access/loginEmployee.jsp");
+                response.getWriter().println("<font color=red align: center>Błędny login lub hasło<font>");
+                requestDispatcher.include(request, response);
+            }
+
+
         }
+
+
+
     }
 }
