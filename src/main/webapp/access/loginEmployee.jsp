@@ -63,7 +63,7 @@
     <header>
         <h1>Warsztat samochodowy</h1>
         <h2>Logowanie</h2>
-        <form class="logform">
+        <form class="logform" action="/loginEmployee" method="post">
             Email:<br>
             <label>
                 <input class="field" type="text" name="email">
