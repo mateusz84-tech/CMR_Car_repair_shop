@@ -23,11 +23,14 @@ public class RegisterEmployeeServlet extends HttpServlet {
                           HttpServletResponse response) throws ServletException, IOException {
 
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String newPassword = request.getParameter("newPassword");
 
-        EmployeeDao setNewPassword = new EmployeeDao();
-        List<Employee> employeeList = new ArrayList<>();
+        EmployeeDao employeeDao = new EmployeeDao();
 
-        
+        Employee employee = employeeDao.readByEmail(email);
+
+        employee.setPassword(newPassword);
+        employeeDao.update(employee);
+        response.sendRedirect("/access/loginEmployee.jsp");
     }
 }
