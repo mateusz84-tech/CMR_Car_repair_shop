@@ -34,7 +34,7 @@ public class LoginEmployeeServlet extends HttpServlet {
             else if(employee.getEmail().equals(emailEmployee) && employee.getPassword().equals(passwordEmployee)){
                 response.sendRedirect("/employee/employeePage.jsp");
             }
-            else if(!employee.getEmail().equals(emailEmployee) || !employee.getPassword().equals(passwordEmployee)){
+            else {
                 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/access/loginEmployee.jsp");
                 response.getWriter().println("<font color=red align: center>Błędny login lub hasło<font>");
                 requestDispatcher.include(request, response);
