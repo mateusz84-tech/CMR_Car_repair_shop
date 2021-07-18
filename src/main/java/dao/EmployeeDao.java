@@ -16,7 +16,7 @@ public class EmployeeDao {
             "INSERT INTO employee(first_name,last_name,number_phone,email,notes,hourly_rate,password)VALUES(?,?,?,?,?,?,?)";
     private final String FIND_BY_ID = "SELECT * FROM employee WHERE id_employee = ?";
     private final String FIND_EMPLOYEE_BY_EMAIL = "SELECT * FROM employee WHERE email = ?";
-    private final String CHANGE_PASSWORD_EMPLOYEE_QUERY = "UPDATE employee SET password = ?";
+    private final String CHANGE_PASSWORD_EMPLOYEE_QUERY = "UPDATE employee SET password = ? WHERE email = ?";
     private final String DELETE_BY_ID = "DELETE FROM employee WHERE id_employee = ?";
     private final String FIND_ALL = "SELECT * FROM employee";
     private final String FIND_ALL_BY_EMAIL_AND_PASSWORD = "SELECT email, password FROM employee";
@@ -63,6 +63,7 @@ public class EmployeeDao {
                 employee.setNotes(resultSet.getString("notes"));
                 employee.setHourly_rate(resultSet.getDouble("hourly_rate"));
                 employee.setPassword(resultSet.getString("password"));
+                employee.setId_employee(resultSet.getInt("id_employee"));
 
                 return employee;
             }
@@ -77,6 +78,7 @@ public class EmployeeDao {
         try(Connection connection = DBUtil.getConn()){
             PreparedStatement statement = connection.prepareStatement(CHANGE_PASSWORD_EMPLOYEE_QUERY);
             statement.setString(1, employee.getPassword());
+            statement.setString(2, employee.getEmail());
             statement.executeUpdate();
 
         }catch (SQLException exc){
