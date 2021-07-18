@@ -15,6 +15,7 @@ public class EmployeeDao {
     private final String CREATE_EMPLOYEE_QUERY =
             "INSERT INTO employee(first_name,last_name,number_phone,email,notes,hourly_rate,password)VALUES(?,?,?,?,?,?,?)";
     private final String FIND_BY_ID = "SELECT * FROM employee WHERE id_employee = ?";
+    private final String FIND_EMPLOYEE_BY_EMAIL = "SELECT * FROM employee WHERE email = ?";
     private final String DELETE_BY_ID = "DELETE FROM employee WHERE id_employee = ?";
     private final String FIND_ALL = "SELECT * FROM employee";
     private final String FIND_ALL_BY_EMAIL_AND_PASSWORD = "SELECT email, password FROM employee";
@@ -44,6 +45,29 @@ public class EmployeeDao {
             exe.printStackTrace();
             return null;
         }
+    }
+
+    public Employee readByEmail(String email){
+        try(Connection connection = DBUtil.getConn()){
+            PreparedStatement statement = connection.prepareStatement(FIND_EMPLOYEE_BY_EMAIL);
+            statement.setString(1,email);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                Employee employee = new Employee();
+                employee.setFirst_name(resultSet.getString("first_name"));
+                employee.setLast_name(resultSet.getString("last_name"));
+                employee.setNumber_phone(resultSet.getInt("number_phone"));
+                employee.setEmail(resultSet.getString("email"));
+                employee.setNotes(resultSet.getString("notes"));
+                employee.setHourly_rate(resultSet.getDouble("hourly_rate"));
+                employee.setPassword(resultSet.getString("password"));
+
+                return employee;
+            }
+        }catch (SQLException exception){
+            exception.printStackTrace();
+        }
+        return null;
     }
 
     public List<Employee> findByEmailAndPassword(){
