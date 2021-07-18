@@ -90,7 +90,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("ID: %d%nImię: %s%nNazwisko: %s%nNumer telefonu: %d%nNotakta: %s%n,Stawka godzinowa: %.2f%nEmail: %s%n"
-                ,getId_employee(),getFirst_name(),getLast_name(),getNumber_phone(),getNotes(),getHourly_rate(),getEmail());
+        return String.format("ID: %d%nImię: %s%nNazwisko: %s%nNumer telefonu: %d%nNotakta: %s%nStawka godzinowa: %.2f%nEmail: %s%nHasło: %s"
+                ,getId_employee(),getFirst_name(),getLast_name(),getNumber_phone(),getNotes(),getHourly_rate(),getEmail(),getPassword());
     }
 }
