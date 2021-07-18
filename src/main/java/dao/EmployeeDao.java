@@ -16,6 +16,7 @@ public class EmployeeDao {
             "INSERT INTO employee(first_name,last_name,number_phone,email,notes,hourly_rate,password)VALUES(?,?,?,?,?,?,?)";
     private final String FIND_BY_ID = "SELECT * FROM employee WHERE id_employee = ?";
     private final String FIND_EMPLOYEE_BY_EMAIL = "SELECT * FROM employee WHERE email = ?";
+    private final String CHANGE_PASSWORD_EMPLOYEE_QUERY = "UPDATE employee SET password = ?";
     private final String DELETE_BY_ID = "DELETE FROM employee WHERE id_employee = ?";
     private final String FIND_ALL = "SELECT * FROM employee";
     private final String FIND_ALL_BY_EMAIL_AND_PASSWORD = "SELECT email, password FROM employee";
@@ -47,6 +48,7 @@ public class EmployeeDao {
         }
     }
 
+    // function that search employee by email only
     public Employee readByEmail(String email){
         try(Connection connection = DBUtil.getConn()){
             PreparedStatement statement = connection.prepareStatement(FIND_EMPLOYEE_BY_EMAIL);
@@ -70,6 +72,19 @@ public class EmployeeDao {
         return null;
     }
 
+    // function to change password only
+    public void update (Employee employee){
+        try(Connection connection = DBUtil.getConn()){
+            PreparedStatement statement = connection.prepareStatement(CHANGE_PASSWORD_EMPLOYEE_QUERY);
+            statement.setString(1, employee.getPassword());
+            statement.executeUpdate();
+
+        }catch (SQLException exc){
+            exc.printStackTrace();
+        }
+    }
+
+    // function that search employee by email and password only
     public List<Employee> findByEmailAndPassword(){
 
         try(Connection connection = DBUtil.getConn()){
