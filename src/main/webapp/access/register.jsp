@@ -45,7 +45,7 @@
         .button{
             background-color: mediumspringgreen;
             height: 30px;
-            width: 80px;
+            width: 90px;
             border-radius: 5px 5px 5px 5px;
         }
     </style>
@@ -54,17 +54,16 @@
 <div id="wrapper">
     <h1>Rejestracja</h1>
     <header>
-        <form class="logform" action="/loginOwner" method="post">
+        <form class="logform" action="/registerEmployee" method="post">
             Email:<br>
             <label>
                 <input class="field" type="text" name="email">
-            </label><br>
-            Wprowadz nowe hasło:<br>
+            </label><br><br>
+            Worowadź nowe hasło:<br>
             <label>
-                <input class="field" type="password" name="password">
-            </label>
-            <br><br>
-            <input class="button" type="submit" value="Zaloguj">
+                <input class="field" type="password" name="newPassword">
+            </label><br><br>
+            <input class="button" type="submit" value="Zmień hasło">
         </form>
         </header>
 </div>
