@@ -25,13 +25,16 @@ public class LoginEmployeeServlet extends HttpServlet {
         String passwordEmployee = request.getParameter("password");
 
         EmployeeDao employeeDao = new EmployeeDao();
-        List<Employee> employeeList = employeeDao.findByEmailAndPassword();
+        List<Employee> employeeList = employeeDao.findAll();
 
         for(Employee employee : employeeList){
             if(employee.getEmail().equals(emailEmployee) && employee.getPassword().equals("haslo")){
                 response.sendRedirect("/access/register.jsp");
             }
             else if(employee.getEmail().equals(emailEmployee) && employee.getPassword().equals(passwordEmployee)){
+                HttpSession session = request.getSession();
+                session.setAttribute("employee", employee.getFirst_name());
+                session.setMaxInactiveInterval(30*60);
                 response.sendRedirect("/employee/employeePage.jsp");
             }
             else {
@@ -40,10 +43,7 @@ public class LoginEmployeeServlet extends HttpServlet {
                 requestDispatcher.include(request, response);
             }
 
-
         }
-
-
 
     }
 }
