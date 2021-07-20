@@ -115,14 +115,14 @@ public class EmployeeDao {
             List<Employee> employees = new ArrayList<>();
             while(resultSet.next()){
                 Employee employee = new Employee();
-                resultSet.getInt("id_employee");
-                resultSet.getString("first_name");
-                resultSet.getString("last_name");
-                resultSet.getInt("number_phone");
-                resultSet.getString("email");
-                resultSet.getString("notes");
-                resultSet.getDouble("hourly_rate");
-                resultSet.getString("password");
+                employee.setId_employee(resultSet.getInt("id_employee"));
+                employee.setFirst_name(resultSet.getString("first_name"));
+                employee.setLast_name(resultSet.getString("last_name"));
+                employee.setNumber_phone(resultSet.getInt("number_phone"));
+                employee.setEmail(resultSet.getString("email"));
+                employee.setNotes(resultSet.getString("notes"));
+                employee.setHourly_rate(resultSet.getDouble("hourly_rate"));
+                employee.setPassword(resultSet.getString("password"));
 
                 employees.add(employee);
             }
