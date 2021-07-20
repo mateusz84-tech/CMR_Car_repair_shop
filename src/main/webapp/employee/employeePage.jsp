@@ -22,6 +22,40 @@
       margin: 0 auto 0 auto;
       background-color: slategray;
     }
+    h1{
+        padding-top: 30px;
+        color: whitesmoke;
+        size: 32px;
+        text-align: center;
+    }
+    .logout{
+        padding-left: 1000px;
+        padding-top: 30px;
+    }
+    a{
+        text-decoration: none;
+        color: darkorange;
+        font-size: 22px;
+    }
+    table{
+        margin-top: 100px;
+        margin-left: 150px;
+    }
+    a.windows{
+        display: block;
+        text-decoration: none;
+        font-size: 28px;
+        color: mediumspringgreen;
+        border: darkorange solid;
+        height: 100px;
+        width: 200px;
+        margin-left: 100px;
+        margin-top: 40px;
+        text-align: center;
+        padding-top: 12px;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 10px 10px 5px #000000;
+    }
   </style>
 </head>
 <body>
@@ -31,8 +65,24 @@
 %>
 <div id="wrapper">
     <header>
+        <div class="logout">
+<%--            poprawić serwlet wylogowania aby był odpowiedni dla właściciela oraz pracownika--%>
+            <p><a href="#">Wyloguj</a></p>
+        </div>
         <h1>Witaj <%=name%></h1>
     </header>
+    <table>
+        <tr>
+            <td><a class="windows" href="#">Nowy klient</a></td>
+            <td><a class="windows" href=""#>Edycja klienta</a></td>
+            <td><a class="windows" href="#">Usuń klienta</a></td>
+        </tr>
+        <tr>
+            <td><a class="windows" href="#">Pojazdy klienta</a></td>
+            <td><a class="windows" href="#">Zlecenia klienta</a></td>
+            <td><a class="windows" href="#">Lista klientów</a></td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>
