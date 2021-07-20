@@ -25,8 +25,14 @@
   </style>
 </head>
 <body>
+<%
+    HttpSession session1 = request.getSession();
+    String name = (String) session1.getAttribute("employee");
+%>
 <div id="wrapper">
-<h1>Strona pracownika</h1>
+    <header>
+        <h1>Witaj <%=name%></h1>
+    </header>
 </div>
 </body>
 </html>
