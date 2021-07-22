@@ -25,7 +25,7 @@
     h1{
         padding-top: 30px;
         color: whitesmoke;
-        size: 32px;
+        font-size: 42px;
         text-align: center;
     }
     .logout{
@@ -42,11 +42,12 @@
         margin-left: 150px;
     }
     a.windows{
+        background-color: darkslategray;
         display: block;
         text-decoration: none;
         font-size: 28px;
-        color: mediumspringgreen;
-        border: darkorange solid;
+        color: navajowhite;
+        border: darkcyan solid;
         height: 100px;
         width: 200px;
         margin-left: 100px;
@@ -55,6 +56,11 @@
         padding-top: 12px;
         border-radius: 10px 10px 10px 10px;
         box-shadow: 10px 10px 5px #000000;
+    }
+    header{
+        border: darkcyan solid;
+        padding-top: 50px;
+        line-grid: initial;
     }
   </style>
 </head>
