@@ -79,7 +79,7 @@
     </header>
     <table>
         <tr>
-            <td><a class="windows" href="#">Nowy klient</a></td>
+            <td><a class="windows" href="/customer/addCustomer.jsp">Nowy klient</a></td>
             <td><a class="windows" href=""#>Edycja klienta</a></td>
             <td><a class="windows" href="#">Usuń klienta</a></td>
         </tr>
