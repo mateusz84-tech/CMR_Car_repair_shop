@@ -27,5 +27,7 @@ public class AddCustomerServlet extends HttpServlet {
         Customer customer = new Customer(name,lastName);
         customerDao.create(customer);
 
+        response.sendRedirect("/car/addCar.jsp");
+
     }
 }
