@@ -12,6 +12,9 @@ public class CustomerDao {
 
     private final String CREATE_CUSTOMER_QUERY = "INSERT INTO customer(first_name,last_name,repair_id) VALUES(?,?,?)";
 
+    // zapytanie do wyświetlenia ostatnio dodanego klienta aby przy formularzu dodawanie nowego samochodu wpisać poprawne id klienta
+//    private final String FIND_LAST_ADD_CUSTOMER = "SELECT * FROM customer ORDER BY id_customer DESC LIMIT 1";
+
     public Customer create(Customer customer){
 
         try(Connection connection = DBUtil.getConn()){
@@ -32,4 +35,21 @@ public class CustomerDao {
         }
         return customer;
     }
+
+//    public Customer lastAdded(){
+//
+//        try(Connection connection = DBUtil.getConn()){
+//            PreparedStatement statement = connection.prepareStatement(FIND_LAST_ADD_CUSTOMER);
+//            ResultSet resultSet = statement.executeQuery();
+//            Customer customer = new Customer();
+//            customer.setId_customer(resultSet.getInt("id_customer"));
+//            customer.setFirst_name(resultSet.getString("first_name"));
+//            customer.setLast_name(resultSet.getString("last_name"));
+//
+//            return customer;
+//        }catch (SQLException exception){
+//            exception.printStackTrace();
+//            return null;
+//        }
+//    }
 }
