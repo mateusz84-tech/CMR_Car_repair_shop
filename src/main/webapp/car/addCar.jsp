@@ -53,7 +53,7 @@
         background-color: mediumspringgreen;
     }
     footer{
-        margin-top: 400px;
+        margin-top: 200px;
         height: 100px;
         background-color: mediumspringgreen;
         border: mediumspringgreen solid;
@@ -91,7 +91,7 @@
     <form method="post" action="/addCar">
         Id klienta:<br>
         <label>
-            <input class="field" type="number" name="id_customer" step="1" min="1">
+            <input class="field" type="number" name="id_customer" min="1" step="1">
         </label><br>
         Model samochodu:<br>
         <label>
