@@ -22,17 +22,66 @@
             margin: 0 auto 0 auto;
             background-color: slategray;
         }
+        h1{
+            padding-top: 30px;
+            color: whitesmoke;
+            text-align: center;
+        }
+        form{
+            display: block;
+            padding-top: 30px;
+            border: solid lightblue;
+            border-right: none;
+            border-left: none;
+            border-top-color: darkorange;
+            text-align: center;
+            color: blue;
+            margin-top: 50px;
+        }
+        .field{
+            display: inline-block;
+            height: 30px;
+            width: 250px;
+            border-radius: 10px 10px 10px 10px;
+        }
+        .button{
+            margin-top: 20px;
+            height: 25px;
+            width: 70px;
+            color: black;
+            border-radius: 7px 7px 7px 7px;
+            background-color: mediumspringgreen;
+        }
+        footer{
+            margin-top: 600px;
+            height: 100px;
+            background-color: mediumspringgreen;
+            border: mediumspringgreen solid;
+        }
+        p{
+            text-align: center;
+        }
     </style>
+
 </head>
 <body>
-<div>
+<div id="wrapper">
+    <h1>Dodaj nowego klienta</h1>
     <form method="post" action="/addCustomer">
-        Imię:
-        <input type="text" name="name">
-        Nazwisko:
-        <input type="text" name="lastName">
-        <input type="submit" value="dodaj">
+        Imię:<br>
+        <input class="field" type="text" name="name"><br>
+        Nazwisko:<br>
+        <input class="field" type="text" name="lastName"><br>
+        <input class="button" type="submit" value="dodaj">
     </form>
+    <footer>
+        <p>Nazwa warsztau...</p>
+        <p>Adres...</p>
+        <p>Tel...</p>
+        <p>email...
+        </p>
+    </footer>
 </div>
+
 </body>
 </html>
