@@ -60,6 +60,28 @@
     }
     p{
         text-align: center;
+
+    }
+    h3{
+        padding-top: 30px;
+        color: whitesmoke;
+        text-align: center;
+    }
+    table{
+        text-align: center;
+        /*margin auto określa takie same marginesy z obu stron w związku z tym ustawie dany element na środku strony*/
+        margin: auto;
+        width: 600px;
+        border-spacing: 30px;
+        border-style: solid;
+        border-color: mediumspringgreen;
+        font-family: "DejaVu Sans", serif;
+    }
+    .major{
+        color: gold;
+    }
+    .tableData{
+        color: whitesmoke;
     }
   </style>
 </head>
@@ -93,6 +115,24 @@
         </label><br>
         <input class="button" type="submit" value="Dodaj">
     </form>
+
+    <h3>Ostatnio dodany klient</h3><br>
+    <table>
+        <th>
+            <tr>
+                <td class="major">Id</td>
+                <td>Imię</td>
+                <td>Nazwisko</td>
+                <td>Numer zlecenia</td>
+            </tr>
+        </th>
+        <tr>
+            <td class="major">${lastAddedCustomer.getId_customer()}</td>
+            <td class="tableData">${lastAddedCustomer.getFirst_name()}</td>
+            <td class="tableData">${lastAddedCustomer.getLast_name()}</td>
+            <td class="tableData">${lastAddedCustomer.getRepair_id()}</td>
+        </tr>
+    </table>
     <footer>
         <p>Nazwa warsztau...</p>
         <p>Adres...</p>
