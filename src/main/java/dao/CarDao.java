@@ -11,7 +11,8 @@ import java.sql.SQLException;
 public class CarDao {
 
     private final String CREATE_CAR_QUERY =
-            "INSERT INTO car(id_car,id_customer,model,mark,year_of_production,registration_number,technical_inspection_date) VALUES(?,?,?,?,?,?,?)";
+            "INSERT INTO car(id_car,id_customer,model,mark,year_of_production,registration_number," +
+                    "technical_inspection_year, technical_inspection_month, technical_inspection_day) VALUES(?,?,?,?,?,?,?,?,?)";
 
 
     public Car create(Car car){
@@ -23,9 +24,11 @@ public class CarDao {
             statement.setInt(2, car.getId_car());
             statement.setString(3,car.getMark());
             statement.setString(4,car.getModel());
-            statement.setInt(5,car.getYear_of_production().getYear());
+            statement.setInt(5,car.getYear_of_production());
             statement.setString(6,car.getRegistration_number());
-            statement.setInt(7,car.getTechnical_inspection_date().getYear());
+            statement.setInt(7,car.getTechnical_inspection_year());
+            statement.setInt(8,car.getTechnical_inspection_month());
+            statement.setInt(9,car.getTechnical_inspection_day());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             while(resultSet.next()){
