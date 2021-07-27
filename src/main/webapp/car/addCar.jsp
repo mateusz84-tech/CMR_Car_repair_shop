@@ -103,15 +103,24 @@
         </label><br>
         Rok produkcji:<br>
         <label>
-            <input class="field" type="date" name="year_of_production">
+            <input class="field" type="number" name="year_of_production" min="1" step="any">
         </label><br>
         Numer rejestracyjny:<br>
         <label>
             <input class="field" type="text" name="registration_number">
-        </label><br>
-        Data badania technicznego:<br>
+        </label><br><br>
+        Data badania technicznego:<br><br>
+        Rok:<br>
         <label>
-            <input class="field" type="date" name="technical_inspection_date">
+            <input class="field" type="number" name="year" step="any">
+        </label><br>
+        Miesiąc:<br>
+        <label>
+            <input class="field" type="number" name="month" min="1" max="12" step="1">
+        </label><br>
+        Dzień: <br>
+        <label>
+            <input class="field" type="number" name="day" min="1" max="31" step="1">
         </label><br>
         <input class="button" type="submit" value="Dodaj">
     </form>
