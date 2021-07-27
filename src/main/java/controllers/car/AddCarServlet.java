@@ -31,8 +31,15 @@ public class AddCarServlet extends HttpServlet {
         int technical_inspection_month = Integer.parseInt(request.getParameter("month"));
         int technical_inspection_day = Integer.parseInt(request.getParameter("day"));
 
-        Car car = new Car(id_customer,model,mark,year_of_production,
-                registration_number,technical_inspection_year, technical_inspection_month,technical_inspection_day);
+        Car car = new Car();
+        car.setId_customer(id_customer);
+        car.setModel(model);
+        car.setMark(mark);
+        car.setYear_of_production(year_of_production);
+        car.setRegistration_number(registration_number);
+        car.setTechnical_inspection_year(technical_inspection_year);
+        car.setTechnical_inspection_month(technical_inspection_month);
+        car.setTechnical_inspection_day(technical_inspection_day);
 
         CarDao carDao = new CarDao();
         carDao.create(car);
