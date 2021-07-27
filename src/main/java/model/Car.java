@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 public class Car {
@@ -9,21 +11,25 @@ public class Car {
     private int id_customer;
     private String model;
     private String mark;
-    private LocalDate year_of_production;
+    private int year_of_production;
     private String registration_number;
-    private LocalDate technical_inspection_date;
+    private int technical_inspection_year;
+    private int technical_inspection_month;
+    private int technical_inspection_day;
 
     public Car() {
     }
 
-    public Car(int id_customer, String model, String mark, LocalDate year_of_production,
-               String registration_number, LocalDate technical_inspection_date) {
+    public Car(int id_customer, String model, String mark, int year_of_production,
+               String registration_number, int technical_inspection_year, int technical_inspection_month, int technical_inspection_day) {
         this.id_customer = id_customer;
         this.model = model;
         this.mark = mark;
         this.year_of_production = year_of_production;
         this.registration_number = registration_number;
-        this.technical_inspection_date = technical_inspection_date;
+        this.technical_inspection_year = technical_inspection_year;
+        this.technical_inspection_month = technical_inspection_month;
+        this.technical_inspection_day = technical_inspection_day;
     }
 
     public int getId_car() {
@@ -58,11 +64,11 @@ public class Car {
         this.mark = mark;
     }
 
-    public LocalDate getYear_of_production() {
+    public int getYear_of_production() {
         return year_of_production;
     }
 
-    public void setYear_of_production(LocalDate year_of_production) {
+    public void setYear_of_production(int year_of_production) {
         this.year_of_production = year_of_production;
     }
 
@@ -74,18 +80,35 @@ public class Car {
         this.registration_number = registration_number;
     }
 
-    public LocalDate getTechnical_inspection_date() {
-        return technical_inspection_date;
+    public int getTechnical_inspection_year() {
+        return technical_inspection_year;
     }
 
-    public void setTechnical_inspection_date(LocalDate technical_inspection_date) {
-        this.technical_inspection_date = technical_inspection_date;
+    public void setTechnical_inspection_year(int technical_inspection_year) {
+        this.technical_inspection_year = technical_inspection_year;
+    }
+
+    public int getTechnical_inspection_month() {
+        return technical_inspection_month;
+    }
+
+    public void setTechnical_inspection_month(int technical_inspection_month) {
+        this.technical_inspection_month = technical_inspection_month;
+    }
+
+    public int getTechnical_inspection_day() {
+        return technical_inspection_day;
+    }
+
+    public void setTechnical_inspection_day(int technical_inspection_day) {
+        this.technical_inspection_day = technical_inspection_day;
     }
 
     @Override
     public String toString() {
-        return String.format("Id: %d%nId klienta: %d%nModel: %s%nMarka: %s%nRok produkcji: %ty%nNumer Rejestracyjny: %s%nData przeglądu technicznego: %ty"
-                ,getId_car(),getId_customer(),getModel(),getMark(), getYear_of_production(),getRegistration_number(),getTechnical_inspection_date());
+        return String.format("Id: %d%nId klienta: %d%nModel: %s%nMarka: %s%nRok produkcji: %d%nNumer Rejestracyjny: %s%nData przeglądu technicznego: %d:%d:%d"
+                ,getId_car(),getId_customer(),getModel(),getMark(), getYear_of_production(),getRegistration_number(),
+                getTechnical_inspection_year(), getTechnical_inspection_month(),getTechnical_inspection_day());
 
     }
 
